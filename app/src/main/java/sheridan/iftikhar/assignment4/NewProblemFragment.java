@@ -22,6 +22,7 @@ import android.widget.TextView;
  */
 public class NewProblemFragment extends Fragment {
 
+    Bundle mBundle = new Bundle();
     Button btnSee, btnSubmit;
     NavController mNavController;
     TextView tvNum1, tvNum2;
@@ -62,18 +63,25 @@ public class NewProblemFragment extends Fragment {
     }
 
     void see (){
-        mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment);
+        mBundle.putInt("correctAnswer", correctAnswer);
+        mBundle.putInt("num1", Integer.parseInt(tvNum1.getText().toString()));
+        mBundle.putInt("num2", Integer.parseInt(tvNum2.getText().toString()));
+
+        mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment, mBundle);
+
     }
 
 
     private void submit() {
+
+        mBundle.putInt("correctAnswer", 5);
         //handle no entry
         if (edtAnswer.getText().toString().equals("")){
            // mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment);
         }
         //if input is valid do this
         else if (Integer.parseInt(edtAnswer.getText().toString()) == correctAnswer){
-            mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment);
+            mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment, mBundle);
         }
     }
 

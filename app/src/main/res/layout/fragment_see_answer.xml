@@ -4,4 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DCC25757"
-    tools:context=".SeeAnswerFragment" />
+    tools:context=".SeeAnswerFragment" >
+
+    <TextView
+        android:id="@+id/tvCorrectAnswer"
+        android:layout_width="142dp"
+        android:layout_height="56dp"
+        android:text="TextView" />
+</FrameLayout>

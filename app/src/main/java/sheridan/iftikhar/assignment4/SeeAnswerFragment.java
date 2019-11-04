@@ -3,11 +3,16 @@ package sheridan.iftikhar.assignment4;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -15,6 +20,9 @@ import android.view.ViewGroup;
  */
 public class SeeAnswerFragment extends Fragment {
 
+    NavController mNavController;
+    TextView tvCorrectAnswer;
+    int correctAnswer, num1, num2;
 
     public SeeAnswerFragment() {
         // Required empty public constructor
@@ -28,4 +36,22 @@ public class SeeAnswerFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_see_answer, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mNavController = Navigation.findNavController(view);
+        tvCorrectAnswer = view.findViewById(R.id.tvCorrectAnswer);
+        tvCorrectAnswer
+                .setText( num1 + " x " + num2 +" = " + Integer.toString(correctAnswer));
+
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        correctAnswer = getArguments().getInt("correctAnswer");
+        num1 = getArguments().getInt("num1");
+        num2 = getArguments().getInt("num2");
+
+    }
 }
