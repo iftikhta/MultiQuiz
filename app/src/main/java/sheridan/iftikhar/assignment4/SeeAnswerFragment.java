@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -20,6 +21,7 @@ import android.widget.TextView;
  */
 public class SeeAnswerFragment extends Fragment {
 
+    Button btnNewProblem;
     NavController mNavController;
     TextView tvCorrectAnswer;
     int correctAnswer, num1, num2;
@@ -39,12 +41,17 @@ public class SeeAnswerFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        btnNewProblem = view.findViewById(R.id.btnSubmit);
         mNavController = Navigation.findNavController(view);
         tvCorrectAnswer = view.findViewById(R.id.tvCorrectAnswer);
         tvCorrectAnswer
-                .setText( num1 + " x " + num2 +" = " + Integer.toString(correctAnswer));
+                .setText( num1 + " x " + num2 +" = " + correctAnswer);
+
+        btnNewProblem.setOnClickListener(v->newProb());
 
     }
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

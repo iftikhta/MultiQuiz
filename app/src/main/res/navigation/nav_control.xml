@@ -22,5 +22,8 @@
         <argument
             android:name="correctAnswer"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_seeAnswerFragment_to_newProblemFragment2"
+            app:destination="@id/newProblemFragment2" />
     </fragment>
 </navigation>
