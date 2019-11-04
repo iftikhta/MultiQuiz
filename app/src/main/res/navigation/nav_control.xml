@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_control"
+    app:startDestination="@id/newProblemFragment2">
+    <fragment
+        android:id="@+id/newProblemFragment2"
+        android:name="sheridan.iftikhar.assignment4.NewProblemFragment"
+        android:label="fragment_new_problem"
+        tools:layout="@layout/fragment_new_problem" >
+        <action
+            android:id="@+id/action_newProblemFragment2_to_seeAnswerFragment"
+            app:destination="@id/seeAnswerFragment"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/seeAnswerFragment"
+        android:name="sheridan.iftikhar.assignment4.SeeAnswerFragment"
+        android:label="fragment_see_answer"
+        tools:layout="@layout/fragment_see_answer" />
+</navigation>
