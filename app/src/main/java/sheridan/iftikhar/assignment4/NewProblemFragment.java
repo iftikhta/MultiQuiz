@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -20,8 +22,13 @@ import android.widget.Button;
  */
 public class NewProblemFragment extends Fragment {
 
-    Button btnSee;
+    Button btnSee, btnSubmit;
     NavController mNavController;
+    TextView tvNum1, tvNum2;
+    EditText edtAnswer;
+
+    int correctAnswer;
+
     public NewProblemFragment() {
         // Required empty public constructor
     }
@@ -32,11 +39,14 @@ public class NewProblemFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View vi = inflater.inflate(R.layout.fragment_new_problem, container, false);
+        btnSubmit = vi.findViewById(R.id.btnSubmit);
         btnSee = vi.findViewById(R.id.btnSee);
-//        mNavController = Navigation.findNavController(vi);
-//
-//        btnSee.setOnClickListener(v-> see());
-        // Inflate the layout for this fragment
+        tvNum1 = vi.findViewById(R.id.tvNum1);
+        tvNum2 = vi.findViewById(R.id.tvNum2);
+        edtAnswer = vi.findViewById(R.id.edtAnswer);
+
+        setQuestion();
+
         return vi;
     }
 
@@ -47,11 +57,41 @@ public class NewProblemFragment extends Fragment {
         mNavController = Navigation.findNavController(view);
 
         btnSee.setOnClickListener(v-> see());
+        btnSubmit.setOnClickListener(v -> submit());
+
     }
 
     void see (){
         mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment);
     }
 
+
+    private void submit() {
+        //handle no entry
+        if (edtAnswer.getText().toString().equals("")){
+           // mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment);
+        }
+        //if input is valid do this
+        else if (Integer.parseInt(edtAnswer.getText().toString()) == correctAnswer){
+            mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment);
+        }
+    }
+
+
+    void setQuestion(){
+        int num1 = (int) generateRand();
+        int num2 = (int) generateRand();
+
+        correctAnswer = num1*num2;
+
+        tvNum1.setText(Integer.toString(num1));
+        tvNum2.setText(Integer.toString(num2));
+    }
+
+    double generateRand(){
+        double rand = Math.random();
+        rand = rand * 9 +1;
+        return rand;
+    }
 
 }

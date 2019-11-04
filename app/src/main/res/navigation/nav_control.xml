@@ -13,6 +13,9 @@
             android:id="@+id/action_newProblemFragment2_to_seeAnswerFragment"
             app:destination="@id/seeAnswerFragment"
             app:launchSingleTop="false" />
+        <argument
+            android:name="correctAnswer"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/seeAnswerFragment"
