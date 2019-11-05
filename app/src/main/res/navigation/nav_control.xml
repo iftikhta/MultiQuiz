@@ -53,5 +53,15 @@
     <fragment
         android:id="@+id/tryAgainFragment"
         android:name="sheridan.iftikhar.assignment4.TryAgainFragment"
-        android:label="TryAgainFragment" />
+        android:label="TryAgainFragment" >
+        <action
+            android:id="@+id/action_tryAgainFragment_to_inputErrorFragment"
+            app:destination="@id/inputErrorFragment" />
+        <action
+            android:id="@+id/action_tryAgainFragment_to_seeAnswerFragment"
+            app:destination="@id/seeAnswerFragment" />
+        <action
+            android:id="@+id/action_tryAgainFragment_to_rightAnswerFragment"
+            app:destination="@id/rightAnswerFragment" />
+    </fragment>
 </navigation>
