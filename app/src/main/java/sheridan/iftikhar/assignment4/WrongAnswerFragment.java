@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -22,6 +23,7 @@ public class WrongAnswerFragment extends Fragment {
 
     NavController mNavController;
     TextView tvQuestion, tvWrong;
+    Button btnTryAgain, btnSeeAnswer;
 
     public WrongAnswerFragment() {
         // Required empty public constructor
@@ -42,7 +44,27 @@ public class WrongAnswerFragment extends Fragment {
         tvQuestion = view.findViewById(R.id.tvQuestion);
         tvWrong = view.findViewById(R.id.tvWrong);
 
+        tvQuestion.setText(getArguments().getInt("num1") + " x " +
+                getArguments().getInt("num2") + " = ?");
 
+        tvWrong.setText(getArguments().getString("userInp"));
+
+        btnTryAgain = view.findViewById(R.id.btnTryAgain);
+        btnSeeAnswer = view.findViewById(R.id.btnSeeAnswer);
+
+        btnSeeAnswer.setOnClickListener(v-> see());
+
+        btnTryAgain.setOnClickListener(v-> tryAgain());
+    }
+
+    void see(){
+
+
+        mNavController.navigate(R.id.action_wrongAnswerFragment_to_seeAnswerFragment, getArguments());
+    }
+
+    void tryAgain(){
+        mNavController.navigate(R.id.action_wrongAnswerFragment_to_tryAgainFragment,getArguments());
 
     }
 }

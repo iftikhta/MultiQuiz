@@ -99,6 +99,9 @@ public class TryAgainFragment extends Fragment {
         else if (Integer.parseInt(edtAnswer.getText().toString()) == correctAnswer){
             mNavController.navigate(R.id.action_tryAgainFragment_to_rightAnswerFragment, getArguments());
         }
+        else{
+            mNavController.navigate(R.id.action_tryAgainFragment_to_wrongAnswerFragment, getArguments());
+        }
     }
 
     void invalidInput(){

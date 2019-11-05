@@ -102,7 +102,7 @@ public class NewProblemFragment extends Fragment {
             mNavController.navigate(R.id.action_newProblemFragment2_to_rightAnswerFragment, mBundle);
         }
         else{
-            //wrong answer! navigate to wrongAnswerFragment
+            mNavController.navigate(R.id.action_newProblemFragment2_to_wrongAnswerFragment, mBundle);
         }
     }
 

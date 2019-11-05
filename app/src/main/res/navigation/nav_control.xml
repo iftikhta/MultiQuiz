@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_newProblemFragment2_to_inputErrorFragment"
             app:destination="@id/inputErrorFragment" />
+        <action
+            android:id="@+id/action_newProblemFragment2_to_wrongAnswerFragment"
+            app:destination="@id/wrongAnswerFragment" />
     </fragment>
     <fragment
         android:id="@+id/seeAnswerFragment"
@@ -63,5 +66,20 @@
         <action
             android:id="@+id/action_tryAgainFragment_to_rightAnswerFragment"
             app:destination="@id/rightAnswerFragment" />
+        <action
+            android:id="@+id/action_tryAgainFragment_to_wrongAnswerFragment"
+            app:destination="@id/wrongAnswerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wrongAnswerFragment"
+        android:name="sheridan.iftikhar.assignment4.WrongAnswerFragment"
+        android:label="fragment_wrong_answer"
+        tools:layout="@layout/fragment_wrong_answer" >
+        <action
+            android:id="@+id/action_wrongAnswerFragment_to_tryAgainFragment"
+            app:destination="@id/tryAgainFragment" />
+        <action
+            android:id="@+id/action_wrongAnswerFragment_to_seeAnswerFragment"
+            app:destination="@id/seeAnswerFragment" />
     </fragment>
 </navigation>
