@@ -90,7 +90,6 @@ public class NewProblemFragment extends Fragment {
 
         if(!isNum){
              invalidInput();
-            Toast.makeText(getContext(), "test", Toast.LENGTH_SHORT).show();
         }
          else if(edtAnswer.getText() == null){
             invalidInput();

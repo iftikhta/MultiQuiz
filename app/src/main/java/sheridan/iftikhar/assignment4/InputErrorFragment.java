@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -21,7 +22,8 @@ import android.widget.TextView;
 public class InputErrorFragment extends Fragment {
 
     NavController mNavController;
-    TextView tvErrorMessage;
+    TextView tvErrorMessage, tvUserINP;
+    Button btnTryAgain;
 
     public InputErrorFragment() {
         // Required empty public constructor
@@ -36,17 +38,26 @@ public class InputErrorFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mNavController = Navigation.findNavController(view);
         tvErrorMessage = view.findViewById(R.id.tvErrorMessage);
+        tvUserINP = view.findViewById(R.id.tvUserINP);
+        btnTryAgain = view.findViewById(R.id.btnTryAgain);
         String userInput = getArguments().getString("userInp");
         if (userInput.equals("")){
             userInput = "empty";
         }
         String message = getArguments().getInt("num1") + " x " +
-                getArguments().getInt("num2") + " = " +
-                userInput + "?";
+                getArguments().getInt("num2") + " = " ;
         tvErrorMessage.setText(message);
+        tvUserINP.setText(userInput + "?");
+
+        btnTryAgain.setOnClickListener(v-> tryAgain());
+
+    }
+
+    void tryAgain(){
+        mNavController.navigate(R.id.action_inputErrorFragment_to_tryAgainFragment, getArguments());
     }
 }

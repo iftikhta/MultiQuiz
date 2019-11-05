@@ -45,5 +45,13 @@
         android:id="@+id/inputErrorFragment"
         android:name="sheridan.iftikhar.assignment4.InputErrorFragment"
         android:label="fragment_input_error"
-        tools:layout="@layout/fragment_input_error" />
+        tools:layout="@layout/fragment_input_error" >
+        <action
+            android:id="@+id/action_inputErrorFragment_to_tryAgainFragment"
+            app:destination="@id/tryAgainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tryAgainFragment"
+        android:name="sheridan.iftikhar.assignment4.TryAgainFragment"
+        android:label="TryAgainFragment" />
 </navigation>
