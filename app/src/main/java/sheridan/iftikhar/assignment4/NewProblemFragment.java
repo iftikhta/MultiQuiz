@@ -101,6 +101,9 @@ public class NewProblemFragment extends Fragment {
         else if (Integer.parseInt(edtAnswer.getText().toString()) == correctAnswer){
             mNavController.navigate(R.id.action_newProblemFragment2_to_rightAnswerFragment, mBundle);
         }
+        else{
+            //wrong answer! navigate to wrongAnswerFragment
+        }
     }
 
     void invalidInput(){
