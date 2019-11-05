@@ -13,6 +13,12 @@
             android:id="@+id/action_newProblemFragment2_to_seeAnswerFragment"
             app:destination="@id/seeAnswerFragment"
             app:launchSingleTop="false" />
+        <action
+            android:id="@+id/action_newProblemFragment2_to_rightAnswerFragment"
+            app:destination="@id/rightAnswerFragment" />
+        <action
+            android:id="@+id/action_newProblemFragment2_to_inputErrorFragment"
+            app:destination="@id/inputErrorFragment" />
     </fragment>
     <fragment
         android:id="@+id/seeAnswerFragment"
@@ -26,4 +32,18 @@
             android:id="@+id/action_seeAnswerFragment_to_newProblemFragment2"
             app:destination="@id/newProblemFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/rightAnswerFragment"
+        android:name="sheridan.iftikhar.assignment4.RightAnswerFragment"
+        android:label="fragment_right_answer"
+        tools:layout="@layout/fragment_right_answer" >
+        <action
+            android:id="@+id/action_rightAnswerFragment_to_newProblemFragment2"
+            app:destination="@id/newProblemFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputErrorFragment"
+        android:name="sheridan.iftikhar.assignment4.InputErrorFragment"
+        android:label="fragment_input_error"
+        tools:layout="@layout/fragment_input_error" />
 </navigation>

@@ -19,14 +19,12 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SeeAnswerFragment extends Fragment {
+public class RightAnswerFragment extends Fragment {
 
-    Button btnNewProblem;
     NavController mNavController;
-    TextView tvCorrectAnswer;
-    int correctAnswer, num1, num2;
-
-    public SeeAnswerFragment() {
+    TextView tvCorrectResult;
+    Button btnNewProblem;
+    public RightAnswerFragment() {
         // Required empty public constructor
     }
 
@@ -35,32 +33,35 @@ public class SeeAnswerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_see_answer, container, false);
+        return inflater.inflate(R.layout.fragment_right_answer, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnNewProblem = view.findViewById(R.id.btnNewProblem);
         mNavController = Navigation.findNavController(view);
-        tvCorrectAnswer = view.findViewById(R.id.tvCorrectAnswer);
-        tvCorrectAnswer
-                .setText( num1 + " x " + num2 +" = " + correctAnswer);
+        tvCorrectResult = view.findViewById(R.id.tvCorrectResult);
+        String result = getArguments().getInt("num1") + " x " +
+                getArguments().getInt("num2") + " = " +
+                getArguments().getInt("correctAnswer");
+        tvCorrectResult.setText(result);
+        btnNewProblem = view.findViewById(R.id.btnNewProblem_AwnserPage);
 
         btnNewProblem.setOnClickListener(v->newProb());
 
     }
 
     void newProb(){
-        mNavController.navigate(R.id.action_seeAnswerFragment_to_newProblemFragment2);
+        mNavController.navigate(R.id.action_rightAnswerFragment_to_newProblemFragment2);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        correctAnswer = getArguments().getInt("correctAnswer");
-        num1 = getArguments().getInt("num1");
-        num2 = getArguments().getInt("num2");
-
+//
+//        String result = getArguments().getInt("num1") + " x " +
+//                getArguments().getInt("num2") + " = " +
+//                getArguments().getInt("correctResult");
+//        tvCorrectResult.setText(result);
     }
 }

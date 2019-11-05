@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -74,15 +75,37 @@ public class NewProblemFragment extends Fragment {
 
     private void submit() {
 
-        mBundle.putInt("correctAnswer", 5);
-        //handle no entry
-        if (edtAnswer.getText().toString().equals("")){
-           // mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment);
+        mBundle.putInt("correctAnswer", correctAnswer);
+        mBundle.putInt("num1", Integer.parseInt(tvNum1.getText().toString()));
+        mBundle.putInt("num2", Integer.parseInt(tvNum2.getText().toString()));
+        mBundle.putString("userInp", edtAnswer.getText().toString());
+
+        int len = edtAnswer.getText().toString().length();
+        Boolean isNum = true;
+        for (int i = 0; i < len; i++){
+            if(Character.isDigit(edtAnswer.getText().toString().charAt(i)) == false){
+                isNum = false;
+            }
         }
+
+        if(!isNum){
+             invalidInput();
+            Toast.makeText(getContext(), "test", Toast.LENGTH_SHORT).show();
+        }
+         else if(edtAnswer.getText() == null){
+            invalidInput();
+         }
+         else if (edtAnswer.getText().toString().equals("")){
+            invalidInput();
+         }
         //if input is valid do this
         else if (Integer.parseInt(edtAnswer.getText().toString()) == correctAnswer){
-            mNavController.navigate(R.id.action_newProblemFragment2_to_seeAnswerFragment, mBundle);
+            mNavController.navigate(R.id.action_newProblemFragment2_to_rightAnswerFragment, mBundle);
         }
+    }
+
+    void invalidInput(){
+        mNavController.navigate(R.id.action_newProblemFragment2_to_inputErrorFragment, mBundle);
     }
 
 

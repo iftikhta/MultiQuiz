@@ -68,7 +68,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="textShortMessage"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvNum1"
         app:layout_constraintEnd_toEndOf="parent"

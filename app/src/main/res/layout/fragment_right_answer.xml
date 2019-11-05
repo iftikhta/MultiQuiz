@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCC25757"
-    tools:context=".SeeAnswerFragment">
+    tools:context=".RightAnswerFragment">
 
     <TextView
-        android:id="@+id/tvCorrectAnswer"
+        android:id="@+id/tvCorrectResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -16,27 +15,15 @@
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="Correct Answer"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnNewProblem"
+        android:id="@+id/btnNewProblem_AwnserPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="New Problem"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCorrectAnswer" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCorrectResult" />
 </androidx.constraintlayout.widget.ConstraintLayout>
